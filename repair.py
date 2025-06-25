@@ -17,4 +17,4 @@ class Repair():
 # 使用示例
 if __name__ == "__main__":
     repair = Repair()
-    repair.repair_database('travel.db', 'repaired.db')
+    repair.repair_database('Travel_com\\travel.db', 'Travel_com\\travel.db')

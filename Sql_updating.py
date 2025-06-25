@@ -1,23 +1,19 @@
-from selenium import webdriver
-from selenium.webdriver.common.by import By
-from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
-from selenium.webdriver.chrome.options import Options
 import sqlite3
-import random
-import findattri
-
+from findattri import findattri
+import os
 class Sql_updating():
     #updating the scores of the attributions of the city
     def __init__(self,city):
         self.city = city
-        self.db = "travel.db"
-        file = open("data.txt","r",encoding="utf-8")
+        current_dir = os.path.dirname(os.path.abspath(__file__))
+        self.db = os.path.join(current_dir, 'travel.db')
+        self.txt = os.path.join(current_dir, 'data.txt')
+        file = open(self.txt,"r",encoding="utf-8")
 
         for line in file:
             num_key = line.split(":")
             num = num_key[0]
-            key = num_key[1]
+            key = num_key[1].strip()
 
             if key == self.city:
                 self.idx = num
@@ -27,7 +23,15 @@ class Sql_updating():
         pass
 
         
-    def update(self):
+    def update(self,conn):
+        cursor = conn.cursor()
+
+        cursor.execute("DELETE FROM attractions WHERE city=?",(self.city,))
+        conn.commit()
+
+        find = findattri()
+        update_list = find.start(self.idx,self.city)
+        find.save_to_db(update_list)
         return
 
 
@@ -63,7 +67,7 @@ class Sql_updating():
                 maxvalue = score_dic[item]
                 best_city = item
         print(tagname,best_city)
-        cursor.execute("""
+        cursor.execute("""  
             INSERT OR REPLACE INTO best_dic (name, best_city)
            VALUES (?, ?)
         """,(tagname,best_city)
@@ -78,4 +82,4 @@ class Sql_updating():
 
 if __name__ == "__main__":
     update = Sql_updating("Beijing")
-    update.set_list()
+    update.update()

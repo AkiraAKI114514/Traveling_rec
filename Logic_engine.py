@@ -1,16 +1,20 @@
 import sqlite3
 from typing import Dict, List, Set
+from Sql_updating import Sql_updating
+import os
+
 
 class ForwardEngine:
-    def __init__(self, db_path: str = 'travel.db'):
-        self.db_path = db_path
+    def __init__(self):
+        current_dir = os.path.dirname(os.path.abspath(__file__))
+        self.db_path= os.path.join(current_dir, 'travel.db')
         self.facts = set()
         self.rule_fired = set() 
         self.rec_city = {}
         self.best_dic = {}
         self.user_prefs = {"budget":500,"interest":"trip"}
 
-        conn = sqlite3.connect(db_path)
+        conn = sqlite3.connect(self.db_path)
         cursor = conn.cursor()
 
         cursor.execute("SELECT * FROM best_dic")
@@ -50,27 +54,26 @@ class ForwardEngine:
                 for tag in tags.split(','):
                     self.add_fact(f"attraction_tag={tag.strip().lower()},{aid}")
 
-    def get_rules(self) -> List[Dict]:
-        with sqlite3.connect(self.db_path) as conn:
-            conn.row_factory = sqlite3.Row
-            cursor = conn.cursor()
-            cursor.execute("SELECT * FROM rules ORDER BY weight DESC")
-            return [dict(row) for row in cursor.fetchall()]
+    def get_rules(self,conn) -> List[Dict]:
+        conn.row_factory = sqlite3.Row
+        cursor = conn.cursor()
+        cursor.execute("SELECT * FROM rules ORDER BY weight DESC")
+        return [dict(row) for row in cursor.fetchall()]
 
-    def infer(self, max_iterations=100) -> Set[str]:
+    def infer(self, max_iterations=100,updating = False) -> Set[str]:
         newrules = False
         conn = sqlite3.connect(self.db_path)
         cursor = conn.cursor()
         for _ in range(max_iterations):
             changed = False
-            rules = self.get_rules()
+            rules = self.get_rules(conn)
             
             for rule in rules:
                 if rule['id'] not in self.rule_fired and self._eval_condition(rule['condition']):
                     self._execute_action(rule['action'],rule['weight'])
                     self.rule_fired.add(rule['id'])
                     changed = True
-                    print(rule['condition'])
+                    print(f"Condition '{rule['condition']}' approved")
             if not changed:
                 break  #stop when no new facts appended
         if self.rec_city == []:
@@ -81,24 +84,32 @@ class ForwardEngine:
                 facts_split = facts.split(",")
                 facts_id = facts_split[1]
                 facts_str = facts_split[0][15:]
-                if facts_str in self.user_prefs["interest"]:
+
+                if facts_str in self.user_prefs["interest"] and facts_str!="":
                     try:
                         cursor.execute(f"SELECT city FROM attractions WHERE id='{facts_id}'")
                     except:
                         pass
+
                     rows = cursor.fetchall()
                     for row in rows:
                         city0 = row[0]
-                        weight = 0.6
+
+                        if len(facts_str) == 1:
+                            weight = 0.5
+                        elif len(facts_str) == 2:
+                            weight = 1
+                        else:
+                            weight = 5
                         if city0 not in self.rec_city:
                             self.rec_city[city0] = weight
                         else:
-                            self.rec_city[city0] += weight
+                            self.rec_city[city0] += weight*(1/(self.rec_city[city0]+1))
                             self.rec_city[city0] = round(self.rec_city[city0],2)
                     
                     
-            
-                        
+        
+        #Sort the list and slice top5 cities                
         
         sorted_dict = dict(sorted(self.rec_city.items(), key=lambda item: item[1],reverse=True))
         items = list(sorted_dict.items())
@@ -107,6 +118,11 @@ class ForwardEngine:
         weight_list = city_dic.values()
         #return destination list
         final_list = []
+        if updating == True:
+            self.get_latest_list(list(city_dic.keys()),conn)
+        else:
+            pass
+        #print(self.rec_city)
         for city in city_dic.keys():
             rows = cursor.execute(f"SELECT * FROM attractions WHERE city='{city}'")
             for row in rows:
@@ -116,10 +132,10 @@ class ForwardEngine:
                     "city":row[2],
                     "score":float(row[3]),
                     "price":int(row[4]),
-                    "tags":row[5].split(",")[:3]
+                    "tags":row[5].split(",")[:7]
                 }
                 final_list.append(des)
-        print(weight_list)
+
                 
 
         return final_list,city_dic
@@ -136,11 +152,16 @@ class ForwardEngine:
         if action.startswith("recommend>>"):
             attraction_id = action[11:]
             city0 = eval(attraction_id)
-            if city0 not in self.rec_city:
-                self.rec_city[city0] = score
+            if type(city0) == list:
+                for city in city0:
+                    self.add_fact(f"city>>{city}")
+                return
             else:
-                self.rec_city[city0] += score
-            self.add_fact(f"city>>{attraction_id}")
+                if city0 not in self.rec_city:
+                    self.rec_city[city0] = score
+                else:
+                    self.rec_city[city0] += score
+                self.add_fact(f"city>>{attraction_id}")
         elif action.startswith(f"city>>"):
             city1 = action[6:]
 
@@ -150,31 +171,39 @@ class ForwardEngine:
                 self.rec_city[city1] += score
             self.add_fact(f"city>>{city1}")
 
-    def ranking(self,cities):#get best city in list
-        best_city = ""
-        maxscore = 0
-        conn =sqlite3.connect("travel.db")
-        cursur = conn.cursor()
-        for city in cities:
-            cursur.execute(f"SELECT score FROM attractions WHERE city='{city}'")
-            cscore_list = cursur.fetchall()
-            cscore = 0
-            for row in cscore_list:
-                cscore += float(row[0])
-                cscore = round(cscore,2)
+    def ranking(self,cities,score):
+        #get best city in list
+        for city0 in cities:
+            if city0 == "":
+                return
+            if city0 not in self.rec_city:
+                self.rec_city[city0] = score
+            else:
+                self.rec_city[city0] += score
 
-            if cscore>maxscore:
-                best_city = city
-                maxscore = cscore
-
-        return best_city
-
-
+        return cities
+    
+    def get_latest_list(self, city_list,conn):
+        print("Cities updating")
+        length = len(city_list)
+        curr = 0
+        outline = "="*curr*5+"-"*(length-curr)*5
+        print(f"{outline}",end='', flush=True)
+        for city in city_list:
+            update = Sql_updating(city)
+            update.update(conn)
+            curr+=1
+            outline = "="*curr*5+"-"*(length-curr)*5
+            if curr == 1:
+                print(f"\033[F\033[K\033[F{outline}", end='', flush=True)
+            else:
+                print(f"\033[F\033[K\033[F{outline}", end='', flush=True)
+        print("\nUpdate finished")
 
 
 # 使用示例
 if __name__ == "__main__":
     engine = ForwardEngine()
-    engine.load_initial_facts({'budget': 600, 'interest': 'summer,us'})
+    engine.load_initial_facts({'budget':1200,'interest':'japan'})
     result = engine.infer()
     

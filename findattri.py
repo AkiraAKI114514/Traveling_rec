@@ -3,19 +3,37 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.chrome.options import Options
+from selenium.webdriver.chrome.service import Service
+from webdriver_manager.chrome import ChromeDriverManager
 import sqlite3
 import random
+import os
 
 #pip install selenium
 
 class findattri:
     def __init__(self):
+        current_dir = os.path.dirname(os.path.abspath(__file__))
+        self.db = os.path.join(current_dir, 'travel.db')
         pass
-    def start(self,idx0,city):
+    def start(self,idx0,city): 
         options = Options()
+        options.add_argument("--headless")
+        options.add_argument("user_agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36 Edg/137.0.0.0")
+        options.add_argument('--log-level=3')
+        options.add_argument('--silent')
+        options.add_argument('--disable-logging')
         options.add_experimental_option('excludeSwitches', ['enable-logging'])  # 屏蔽 DevTools 日志
 
-        driver = webdriver.Chrome(options=options)
+        try:
+            driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=options)
+        except:
+            try:
+                driver = webdriver.Edge(options=options)
+            except:
+                print("[ERROR] Driver set fail, please download chromedriver or edgedriver.")
+                return []
+
         url0 = f"https://www.trip.com/things-to-do/list?pagetype=city&citytype=dt&id={idx0}&name=&locale=en-XX&curr=MYR"
         driver.get(url0)
         #print(driver.page_source)
@@ -63,6 +81,16 @@ class findattri:
                 pass
 
             tag_list.append(city)
+            split_title = title.split()
+            for keys in split_title:
+                tag_list.append(keys)
+                tag_list.append(keys)
+            
+            for tag in tag_list:
+                tag_split = tag.split()
+                for tag0 in tag_split:
+                    if tag0 not in tag_list:
+                        tag_list.append(tag0)
 
             try:
                 score = card.find_element(By.CLASS_NAME,"u_score_content").text
@@ -77,12 +105,11 @@ class findattri:
             json0["Price"] = price_float
             json_list.append(json0)
             idx+=1
-        print(idx0+city+" done")
         driver.quit()
         return json_list
     
     def create_db(self):
-        conn = sqlite3.connect('travel.db')
+        conn = sqlite3.connect(self.db)
         cursor = conn.cursor()
 
         cursor.execute('''
@@ -100,7 +127,7 @@ class findattri:
         conn.close()
     
     def save_to_db(self,json_list):
-        conn = sqlite3.connect('travel.db')
+        conn = sqlite3.connect(self.db)
         cursor = conn.cursor()
 
         for item in json_list:
