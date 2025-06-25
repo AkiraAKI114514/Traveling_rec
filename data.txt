@@ -1,0 +1,688 @@
+1:Beijing
+2:Shanghai
+4:Dalian
+5:Qingdao
+6:Mount Tai
+7:Xi'an
+8:Dunhuang
+9:Nanjing
+11:Suzhou
+14:Hangzhou
+17:Qiandao Lake
+19:Huangshan Scenic Area
+21:Xiamen
+25:Jiuzhaigou
+26:Shenzhen
+28:Guilin
+30:Xishuangbanna
+31:Dali Prefecture
+35:Turpan
+38:Hong Kong
+39:Macau
+42:Melaka
+44:Penang
+45:Kuala Lumpur
+53:Singapore
+61:Sanya
+66:Naxi River
+68:Huzhou
+69:Xikou Tengtou Scenic Area
+75:Xinchang
+77:Kunshan
+80:NanxunGuzhen
+81:Zhouzhuang Town
+82:Shengsi
+83:Ningbo
+99:Ngari
+100:Shigatse
+103:Leshan
+104:Chengdu
+115:Ili
+117:Urumqi
+124:Kashgar Prefecture
+145:Wuhan
+148:Changsha
+151:Harbin
+152:Guangzhou
+153:Wenzhou
+154:Tianjin
+155:Shenyang
+158:Chongqing
+164:Fuzhou
+165:Kaifeng
+171:Jinggangshan
+191:Bangkok
+198:Luoyang
+199:Shijiazhuang
+208:Pattaya
+217:Yandang Mountain
+231:Lanzhou
+234:Seoul
+235:Jiangyin
+236:Sydney
+248:New York
+249:San Francisco
+250:City of Los Angeles
+251:Hawaii
+252:Las Vegas
+253:Seattle
+254:Chicago
+255:Taicang
+256:Zhujiajian
+257:Washington D.C.
+258:Istanbul
+259:Pretoria
+260:Tel Aviv
+261:Wuxian
+264:Mudanjiang
+265:Heihe
+267:Jilin
+288:Yong'an
+291:Kyushu
+292:Okinawa Prefecture
+293:Osaka
+294:Tokyo
+295:Aichi Prefecture
+296:Hokkaido
+297:Jeju Island
+298:Brussels
+299:Amsterdam
+300:Luxembourg
+301:Zurich
+302:Geneva
+303:Rome
+304:Milan
+305:Frankfurt
+306:Berlin
+308:Paris
+309:London
+312:Melbourne
+313:Yichang
+314:Pyongyang
+315:Dandong
+317:Putian
+318:Linfen
+319:Manzhouli
+320:Auckland
+321:Canberra
+323:Brisbane
+324:Western Australia
+325:Darwin
+326:Cairo
+327:Cape Town
+328:Johannesburg
+329:Ankara
+330:Maldives
+332:Golmud
+334:Zhangzhou
+336:Chenzhou
+337:Gaozhou
+339:Shannan
+340:Venice
+341:Florence
+342:Daocheng
+344:Kangding
+345:Huludao
+346:Shaoshan
+347:Baotou
+348:Lintong District
+350:Heyuan
+351:Huai'an
+352:Mexico City
+353:La Habana
+354:Vancouver
+355:Toronto
+356:Ottawa
+357:Victoria
+358:Moscow
+359:Saint Petersburg
+360:Taipei
+364:Phuket
+365:Pingyao
+366:Longyan
+367:Manila
+368:Jinhu
+378:Madrid
+379:Granada
+380:Seville
+381:Barcelona
+382:Athens
+383:Peloponnese
+385:Hague
+388:Cologne
+389:Edinburgh
+391:Lyon
+392:Bouches-du-Rhone
+393:Rotterdam
+394:Utrecht
+395:Qiqihar
+396:Daxing'anling
+397:Yuncheng
+405:Jingdezhen
+407:Oxford
+410:Luxor
+411:Aswan
+427:Altay Prefecture
+428:Karamay
+429:Korla
+430:Kyoto
+431:Gyeongju
+432:Busan
+433:Gwangju
+434:Ho Chi Minh City
+435:Jakarta
+436:Bandung City
+437:Yogyakarta
+438:Bali
+439:Vienna
+440:Salzburg
+441:Lishui
+442:Boston
+443:Berne
+444:Mauritius
+446:Wuyuan
+448:Xinyang
+449:Copenhagen
+450:Oslo
+451:Stockholm
+452:Helsinki
+453:Cairns
+456:Gold Coast
+458:Hulunbuir
+482:Kathmandu
+483:Chifeng
+484:Xilingol League
+486:Hanzhong
+487:Enshi Prefecture
+488:Yangon
+489:Phnom Penh
+490:Ningde
+491:Kaili
+493:Yancheng
+496:Xiangxi Prefecture
+497:Zhangjiakou
+498:Yichun
+501:Jiamusi
+504:Xuancheng
+505:Changdao
+506:Dongtou District
+507:Nanji Islands
+537:Sarawak
+538:Sabah
+539:Langkawi
+548:Izmir
+549:Antalya
+550:Valletta
+551:Chiang Rai
+552:Jerusalem
+561:Genting Highlands
+562:Yizheng
+565:Phi Phi Islands
+566:Koh Samui
+567:Hami
+568:Fengning
+569:Saipan
+570:Tinian
+571:Chongming District
+572:Munich
+573:Hamburg
+574:Lisbon
+576:Fukuoka
+577:Hyogo Prefecture
+578:Kanagawa Prefecture
+579:New Delhi
+580:Nice
+583:Kota Kinabalu
+584:Mumbai
+585:Hannover
+586:Sliema
+588:Manchester
+589:Tieling
+593:Guangyuan
+594:Laoag
+595:Hebi
+597:Pokhara
+598:Liyang
+599:Siem Reap
+600:Ordos
+610:Boracay Island
+612:Dongying
+614:Lombok
+615:Maoming
+616:Krabi
+626:Adelaide
+628:Port Douglas
+629:Hobart
+630:Palm Cove
+638:Huainan
+643:Antu
+644:Lucerne
+645:Luanping
+647:Pangkor
+649:Songkhla
+650:Tak Province
+661:Montreal
+662:Redang Island
+663:Jiaozuo
+664:Luohe
+665:Jincheng
+667:Hue
+668:Hoi An
+669:Da Nang
+670:Nha Trang
+682:Rotorua
+684:Queenstown
+686:Anji
+687:Jiande
+688:Tonglu
+694:Uthai Thani Province
+695:Christchurch
+696:Tengchong
+697:Qinzhou
+698:Fangchenggang
+699:Sunshine Coast
+700:Dusseldorf
+701:Tioman
+702:Yangshuo
+711:Guigang
+712:Belfast
+713:Glasgow
+714:Pingxiang
+715:Cannes
+716:Bordeaux
+718:Bath
+719:Pompei
+720:Verona
+721:Cambridge
+722:Xing'an County
+723:Xiangshan
+724:Bandar Seri Begawan
+725:Lausanne
+726:Zermatt
+727:Interlaken
+728:Schaffhausen
+730:Coffs Harbour
+731:Agrigento
+734:Catania
+744:Aba Prefecture
+745:Montreux
+746:Tai'an
+747:Naples
+749:Vientiane
+750:Provence
+752:Mingyue Mountain
+753:Colombo
+754:Ganzi Prefecture
+755:Wellington
+756:Kaohsiung
+757:Tainan
+758:Chiayi City
+760:Taitung
+761:Amman
+763:Irbid
+766:Aqaba
+776:Sentosa Island
+777:Alexandria
+779:Sinai Peninsula
+780:Esna
+781:Kuching
+782:Nanchong
+783:Xinzhou
+784:Vatican
+785:Yongjia
+786:Panzhihua
+787:Bonn
+788:Northern Mariana Islands
+789:York
+790:Heidelberg
+791:Innsbruck
+792:Hallstatt
+793:Graz
+794:Laiwu District
+795:Nairobi
+796:Mombasa
+797:Maasai Mara National Reserve
+808:Lille
+809:La Pointe Aux C
+810:Pingdingshan
+811:Hegang
+812:Longyou
+813:Fremantle
+814:Sun City
+815:Yabuli Ski Resort
+816:Kanas
+819:Dublin
+822:Prague
+823:Neijiang
+883:Bayannur
+913:Barkam
+920:Aksu Prefecture
+921:Artux
+922:Bole
+931:Buenos Aires
+932:Rio de Janeiro
+933:Sao Paulo
+934:Lima
+936:Addis Ababa
+937:Kinshasa
+939:Dar es salaam
+940:Tunis
+941:Florida
+942:Honolulu
+943:Houston
+944:Atlanta
+947:Riyadh
+948:Damascus
+949:Tehran
+1026:Agra
+1027:Jaipur
+1029:Antwerp
+1030:Platis Gialos
+1031:Northern Aegean Islands
+1032:Khajuraho
+1033:Sihanoukville Province
+1036:Chitwan
+1039:Stuttgart
+1040:Fussen
+1041:Bologna
+1042:Genoa
+1044:Reykjavik
+1045:Nara
+1046:Bergen
+1048:Dallas
+1049:Rovaniemi
+1050:Suzdal
+1051:Vladimir
+1052:Gwalior
+1053:Dijon
+1054:Oostende
+1056:Delphi
+1058:Edfu
+1059:Birmingham
+1060:Como
+1061:Balearic Islands
+1062:Dubai
+1063:Leukerbad
+1064:Xinyi
+1068:Tokushima
+1069:Ehime Prefecture
+1071:Berkeley
+1073:Nakuru
+1074:Aberdare National Park
+1076:Kemi
+1077:Tampere
+1078:Turku
+1080:Valencia
+1082:Windermere
+1083:Selangor
+1084:Cleveland
+1085:Amboseli
+1086:Mount Kenya National Park
+1087:Kassel
+1088:Wiesbaden
+1089:Shouguang
+1090:Berchtesgaden
+1092:Baden-Baden
+1095:Orleans
+1096:Hengdian World Studios
+1097:Siyang
+1098:Hurghada
+1099:Eindhoven
+1100:Avignon
+1106:Leipzig
+1107:Mannheim
+1109:Budapest
+1113:Kuantan
+1114:Dungun
+1116:Montpellier
+1117:Davos
+1120:Rimini
+1121:Karlstad
+1122:Kinsarvik
+1123:Flam
+1124:Gaobeidian
+1126:Brno
+1128:Siena
+1131:Kusadasi
+1132:Pamukkale
+1133:Cappadocia
+1135:Chibi
+1136:Port Dickson
+1137:Indianapolis
+1151:Orange
+1166:Bohol Island
+1167:Ningguo
+1168:Shihezi
+1169:Kuytun
+1171:Pulau Perhentian
+1172:Taixing
+1173:El Nido
+1176:Nelson
+1179:Qitaihe
+1185:Gangwon State
+1186:Icheon
+1187:Phra Nakhon Si Ayutthaya
+1190:Annecy
+1191:Kumamoto
+1192:Dunedin
+1193:Alxa
+1194:Edonglvyouqu
+1197:Hsinchu
+1198:Nagarkot
+1199:Coventry
+1202:Inverness
+1203:Chungju
+1205:Karlovy Vary
+1206:Toyama
+1207:Gifu
+1208:Nagano Prefecture
+1210:Fox Glacier
+1211:Hiroshima
+1213:Ruili
+1214:Yamanashi Prefecture
+1215:Voss
+1216:Beipiao
+1217:Shizuoka
+1218:Phan Thiet
+1220:Meteora
+1221:Boxing
+1229:Bucharest
+1231:Timisoara
+1237:Mandalay
+1244:Rezekne
+1245:Riga
+1246:Liepaja
+1247:Ventspils
+1248:Jelgava
+1249:Jurmala
+1250:Daugavpils
+1251:Bindura
+1252:Bulawayo
+1253:Gwanda
+1254:Gweru
+1255:Harare
+1256:Marondera
+1257:Masvingo
+1261:Warsaw
+1262:Krakow
+1267:Nassau
+1268:Paradise Island
+1274:Famagusta
+1275:Kyrenia
+1276:Larnaca
+1278:Nicosia
+1279:Paphos
+1282:Zilina
+1283:Bratislava
+1284:Kosice Region
+1285:Nitra
+1286:Ljubljana
+1298:Pecs
+1306:Montego Bay
+1308:Ndola
+1309:Kitwe
+1310:Kabwe
+1311:Luanshya
+1312:Lusaka
+1313:Mufulira
+1314:Chingola
+1316:Ulanhot
+1318:Kaiyuan
+1319:Yizhou District
+1321:Oita Prefecture
+1322:youlun
+1323:Gothenburg
+1324:Bagan
+1326:Kagoshima
+1327:Gunma Prefecture
+1328:Inle Lake
+1329:Ishikawa Prefecture
+1330:Lumbini
+1331:Kolkata
+1332:Bodh Gaya
+1333:Kushinagar
+1334:Rajgir
+1335:Sravasti
+1336:Kaiyuan
+1337:Liuyang
+1338:Suva
+1339:Nadi
+1340:Daegu
+1341:Cordoba
+1342:Mile
+1343:Basque Country
+1344:Hamilton Island
+1353:Abu Dhabi
+1354:Tahiti
+1355:Kruger National Park
+1356:Luoding
+1358:Ulanqab
+1361:Oulu
+1362:Luang Prabang
+1364:Pingtung
+1368:Kinmen
+1369:Taichung
+1370:Westland District
+1373:Xilinhot
+1374:Stratford
+1375:Aviemore
+1376:Terengganu
+1377:Johor Bahru
+1380:Kenting
+1382:Keelung
+1384:Brunnen
+1385:Incheon
+1387:Feicheng
+1388:Dunhua
+1389:Vung Tau
+1390:Mainz
+1391:Nimes
+1392:Leeds
+1393:Dalat
+1396:Koh Samet
+1401:Ibaraki Prefecture
+1402:Strasbourg
+1404:Canary Islands
+1405:Quebec City
+1406:Papeete
+1408:Engelberg
+1409:Lugano
+1411:Beaune
+1412:Cancun
+1413:Machu Picchu
+1414:Cusco
+1416:Leysin
+1417:Xiangtan
+1418:Easter Island
+1419:Kuopio
+1421:Colorado
+1422:Guam
+1423:Kagawa Prefecture
+1424:Grenoble
+1425:Yanzhou District
+1426:Brasilia
+1427:New Jersey
+1429:Yuhang District
+1430:Calgary
+1431:Suichang
+1432:Salt Lake City
+1433:Turin
+1434:New Orleans
+1435:Tianmu Mountain
+1436:Evian-les-Bains
+1437:Tianmu Lake
+1439:Taoyuan
+1440:Eastern Cape
+1441:Aix-en-Provence
+1442:Saint Moritz
+1443:Canakkale
+1444:Chur
+1445:Chungcheongnam-do
+1446:Jeollabuk-do
+1447:Vitznau
+1448:Antibes
+1449:Trier
+1452:Kaesong
+1454:Toulouse
+1457:Naivasha
+1458:Darlington
+1460:Gyeonggi-do
+1461:Saint Gallen
+1462:Elche
+1463:Orgeval
+1464:Sea of Galilee
+1465:Eilat
+1466:Okayama Prefecture
+1467:Dresden
+1468:Cheongju
+1471:Treviso
+1472:Wakayama Prefecture
+1473:Ghent
+1474:Bruges
+1475:Leuven
+1476:Saint Malo
+1477:Basel
+1479:Kirkenes
+1483:Narok
+1484:Xiling Snow Mountain
+1485:Port Elizabeth
+1489:Nuremberg
+1491:Longnan
+1492:Bamberg
+1493:Lindau
+1494:Regensburg
+1495:Bari
+1496:Oklahoma City
+1497:Aalborg
+1498:Wroclaw
+1499:Poznan
+1500:Norwich
+1501:Trujillo
+1502:Cardiff
+1503:Kristiansand
+1504:Guayaquil
+1505:Nantes
+1506:Semarang
+1507:Zhijiang
+1508:Mishan
+1509:Lingshui
+1510:Bastia
+1511:Biarritz
+1512:Bahrain
+1513:Fuyang District
+1514:Perpignan
+1515:Pau
+1516:Newcastle
+1517:Kuwait
+1518:Surakarta
+1519:Assisi
+1520:Bergamo
+1521:Nan'an
+1522:Trondheim
+1523:Puning
+1524:Cortina d'Ampezzo
+1525:Chianciano Terme
+1526:Angers
+1527:Niagara Falls
+1528:Vigo
+1529:Dubrovnik
