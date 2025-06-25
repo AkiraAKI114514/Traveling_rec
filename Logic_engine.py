@@ -195,9 +195,9 @@ class ForwardEngine:
             curr+=1
             outline = "="*curr*5+"-"*(length-curr)*5
             if curr == 1:
-                print(f"\033[F\033[K\033[F{outline}", end='', flush=True)
+                print(f"\033[F\033[K\033[F\033[K{outline}", end='', flush=True)
             else:
-                print(f"\033[F\033[K\033[F{outline}", end='', flush=True)
+                print(f"\033[F\033[K\033[F\033[K{outline}", end='', flush=True)
         print("\nUpdate finished")
 
 
