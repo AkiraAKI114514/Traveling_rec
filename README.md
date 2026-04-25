@@ -1,7 +1,6 @@
 # Traveling_rec - 基于专家系统的智能旅游推荐引擎
 
 ![Python](https://img.shields.io/badge/Python-3.9+-blue?logo=python)
-![Framework](https://img.shields.io/badge/UI-CustomTkinter-orange)
 ![Database](https://img.shields.io/badge/Database-SQLite-lightgrey?logo=sqlite)
 ![License](https://img.shields.io/badge/License-MIT-green)
 
@@ -22,7 +21,7 @@
 
 ```text
 Traveling_rec/
-├── main.py              # 程序入口：负责 GUI 渲染与用户交互逻辑
+├── main.py              # 程序入口：负责用户交互逻辑
 ├── Logic_engine.py      # 逻辑引擎：核心前向推理模块
 ├── DPReasoning.py       # 推理算法：执行基于预算的动态规划选择
 ├── rules.py             # 规则库：定义专家系统的判定逻辑
@@ -31,3 +30,14 @@ Traveling_rec/
 ├── repair.py            # 修复工具：数据库完整性校验与修复
 ├── travel.db            # 核心数据库：存储景点、城市及逻辑规则
 └── Requirements.txt     # 项目依赖清单
+```
+## Quick Start:
+# 克隆仓库
+git clone [https://github.com/AkiraAKI114514/Traveling_rec.git](https://github.com/AkiraAKI114514/Traveling_rec.git)
+cd Traveling_rec
+
+# 安装必要依赖
+pip install -r Requirements.txt
+
+## Run code:
+python main.py
