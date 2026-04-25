@@ -31,7 +31,6 @@ Traveling_rec/
 ├── travel.db            # 核心数据库：存储景点、城市及逻辑规则
 └── Requirements.txt     # 项目依赖清单
 ```
-## Quick Start:
 # 克隆仓库
 git clone [https://github.com/AkiraAKI114514/Traveling_rec.git](https://github.com/AkiraAKI114514/Traveling_rec.git)
 cd Traveling_rec
@@ -39,5 +38,5 @@ cd Traveling_rec
 # 安装必要依赖
 pip install -r Requirements.txt
 
-## Run code:
+# Run code:
 python main.py
